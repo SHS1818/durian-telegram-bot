@@ -1,12 +1,31 @@
+import os
 import asyncio
 import threading
 import time
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
+from http.server import HTTPServer, BaseHTTPRequestHandler
 import telebot
 from telebot import types
 from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, KeyboardButton
+
+# ================= 🌐 DUMMY HTTP SERVER FOR RENDER PORT BINDING =================
+class DummyServer(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"Bot is running successfully on Render!")
+
+def run_dummy_server():
+    # Render dynamic $PORT provide kare, na pelem default 8080 use korbe
+    port = int(os.environ.get("PORT", 8080))
+    server = HTTPServer(('0.0.0.0', port), DummyServer)
+    server.serve_forever()
+
+# Background Thread-e Server run kora hocche jate Render Port timeout na dey
+threading.Thread(target=run_dummy_server, daemon=True).start()
+# ==============================================================================
 
 # ================= ⚙️ CONFIGURATION =================
 BOT_TOKEN = "8686692054:AAErwNR8rYVpZ5LwUat35DH2sDp-WlhLFTA"
