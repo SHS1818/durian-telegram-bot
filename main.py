@@ -28,16 +28,16 @@ threading.Thread(target=run_dummy_server, daemon=True).start()
 # ==============================================================================
 
 # ================= ⚙️ CONFIGURATION =================
-BOT_TOKEN = "8686692054:AAErwNR8rYVpZ5LwUat35DH2sDp-WlhLFTA"
+BOT_TOKEN = "8686692054:-WlhLFTA"
 BOT_USERNAME = "@Durians3bot"
 
 # 🔑 Official Durian API Credentials & Endpoint
 DURIAN_USERNAME = "mrreset"
-DURIAN_API_KEY = "MHpjclF5RUZxTGJZQ3l2RlJoNHZQdz09"
+DURIAN_API_KEY = ""
 BASE_URL = "https://api.durianrcs.com/out/ext_api"
 
 # 🔌 Telegram Account Checker API Credentials
-CHECKER_API_URL = "http://api.tgquantumx.online:8090/check"
+CHECKER_API_URL = ""
 CHECKER_USERNAME = "user_9bdd01fe54"
 CHECKER_PASSWORD = "pass_c2fce95675500035"
 
